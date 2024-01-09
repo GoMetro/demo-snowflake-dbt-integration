@@ -62,3 +62,11 @@ Note for implementing the dbt git workflow in professional settings:
 - more effort is required to incude scheduling the execution, storing the execution results, storing logs, and publishing the freshness checks or documentation
 - more effort is required to use VCS to effectively keep synchronization between environments and facilitate collaboration between the developers.
 - more effort is required to display data lineage
+
+## Useful dbt commands
+
+install dependencies
+```bash
+dbt deps
+```
+
