@@ -6,6 +6,35 @@ Tutorial sources:
  - [dbt quickstart](https://quickstarts.snowflake.com/guide/accelerating_data_teams_with_snowflake_and_dbt_cloud_hands_on_lab/#0)
  - [video tutorial](https://www.youtube.com/watch?v=84RA7TuhCpg&t=587s&ab_channel=SnowflakeDevelopers)
 
+## Prerequisites
+
+- Snowflake account with source data loaded
+- git repo with "main" and "development" branches
+- python 3.6+
+- venv (or other virtual environment manager) [recommended]
+
+## Setup
+install dbt for snowflake (assumes virtual environment is activated)
+```bash
+pip install dbt-snowflake
+```
+create a new folder [if exists] .dbt in the home directory of the user
+```bash
+mkdir -p ~/.dbt
+```
+create a new folder for the data modelling and change to new directory (assumes data was ingested in `01_ingest` folder)
+```bash
+mkdir -p 02_modelling_dbt
+cd 02_modelling_dbt
+```
+initialize the dbt project
+```bash
+dbt init <project_name>
+```
+check if the dbt project was initialized correctly
+```bash
+dbt debug
+```
 
 ## Architecture and Use Case Overview
 

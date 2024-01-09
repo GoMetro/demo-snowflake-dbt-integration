@@ -26,11 +26,20 @@ SHOW WAREHOUSES;
 DROP WAREHOUSE IF EXISTS COMPUTE_WH;
 USE ROLE SYSADMIN; -- !NB! this is important for maintaining the security of objects in the account
 
-CREATE WAREHOUSE COMPUTE_WH
-    WITH WAREHOUSE_SIZE = 'XSMALL'
-    AUTO_SUSPEND = 60
-    AUTO_RESUME = TRUE
-    COMMENT = 'Default Warehouse';
+create warehouse if not exists COMPUTE_WH
+    with warehouse_size = 'XSMALL'
+    auto_suspend = 60
+    auto_resume = TRUE
+    comment = 'Default Warehouse';
+
+create warehouse if not exists DBT_WH_LARGE
+    with warehouse_size = 'LARGE'
+    auto_suspend = 60
+    auto_resume = TRUE
+    comment = 'Warehouse for PC DBT'
+;
+
+grant all on warehouse DBT_WH_LARGE to role DBT_EXECUTOR_ROLE;
 
 SHOW WAREHOUSES;
 
