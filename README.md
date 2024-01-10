@@ -65,8 +65,32 @@ Note for implementing the dbt git workflow in professional settings:
 
 ## Useful dbt commands
 
-install dependencies
+install dbt dependencies
 ```bash
 dbt deps
 ```
+run dbt models [compile and deploy]
+```bash
+dbt run
+```
+This command will above:
+- compile the models
+- deploy the models to the target database, i.e Snowflake
+
+compile dbt models
+```bash
+dbt compile
+```
+
+test dbt models
+```bash
+dbt test
+```
+
+if you want to run a specific model
+```bash
+dbt run --models <model_name>
+```
+the same applies for compile and test commands.
+
 
