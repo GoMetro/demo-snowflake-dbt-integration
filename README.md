@@ -36,6 +36,17 @@ check if the dbt project was initialized correctly
 dbt debug
 ```
 
+## Deploying dbt to production
+
+Once the model created on dbt produces desired results in `development` environment, it can be deployed to `production` environment.
+```bash
+dbt run --target prod
+```
+
+for more on managing environments, see:
+- Article: [about profiles.yml](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles)
+- Tutorial Video: [How to use ONE dbt project for all environments](https://www.youtube.com/watch?v=qxFxOBPyZNY&ab_channel=KahanDataSolutions)
+
 ## Architecture and Use Case Overview
 
 The objective of this lab is to transform raw retail data into a consumable orders model that's ready for analysis.
