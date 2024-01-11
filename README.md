@@ -36,6 +36,17 @@ check if the dbt project was initialized correctly
 dbt debug
 ```
 
+## Deploying dbt to production
+
+Once the model created on dbt produces desired results in `development` environment, it can be deployed to `production` environment.
+```bash
+dbt run --target prod
+```
+
+for more on managing environments, see:
+- Article: [about profiles.yml](https://docs.getdbt.com/docs/core/connect-data-platform/connection-profiles)
+- Tutorial Video: [How to use ONE dbt project for all environments](https://www.youtube.com/watch?v=qxFxOBPyZNY&ab_channel=KahanDataSolutions)
+
 ## Architecture and Use Case Overview
 
 The objective of this lab is to transform raw retail data into a consumable orders model that's ready for analysis.
@@ -62,3 +73,40 @@ Note for implementing the dbt git workflow in professional settings:
 - more effort is required to incude scheduling the execution, storing the execution results, storing logs, and publishing the freshness checks or documentation
 - more effort is required to use VCS to effectively keep synchronization between environments and facilitate collaboration between the developers.
 - more effort is required to display data lineage
+
+## Useful dbt commands
+
+install dbt dependencies
+```bash
+dbt deps
+```
+run dbt models [compile and deploy]
+```bash
+dbt run
+```
+This command will above:
+- compile the models
+- deploy the models to the target database, i.e Snowflake
+
+compile dbt models
+```bash
+dbt compile
+```
+
+test dbt models
+```bash
+dbt test
+```
+
+if you want to run a specific model
+```bash
+dbt run --models <model_name>
+```
+the same applies for compile and test commands.
+
+to create documentation
+```bash
+dbt docs generate
+```
+
+
