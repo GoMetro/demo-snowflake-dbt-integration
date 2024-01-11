@@ -93,4 +93,9 @@ dbt run --models <model_name>
 ```
 the same applies for compile and test commands.
 
+to create documentation
+```bash
+dbt docs generate
+```
+
 
