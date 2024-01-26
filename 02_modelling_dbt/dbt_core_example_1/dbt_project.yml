@@ -1,0 +1,29 @@
+name: 'dbt_core_example_1'
+version: '1.0.0'
+config-version: 2
+
+profile: 'dbt_core_example_1'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+  - "dbt_modules"
+
+models:
+  dbt_core_example_1:
+    # Config indicated by + and applies to all files under models/example/
+    example:
+      +materialized: view
+    staging:
+      materialized: view
+      snowflake_warehouse: compute_wh
+    marts:
+      materialized: table
+      snowflake_warehouse: dbt_wh_large
